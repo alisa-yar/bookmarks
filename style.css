@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --font: 'Inter', sans-serif;
+    
+    --headerColor: #FFFFFF; /*white*/
+    --greyText: #9B9B9B;
+    --blueText: #0073E5; 
+    
+    --bgColor: #2D2D2D; /*dark grey*/
+    --bgLinks: #444442; /*lighter grey*/
+}
+
+html {
+    margin: auto;
+    height: 100%;
+
+    background-color: var(--bgColor);
+    display: flex;
+    flex-direction: column;
+
+    font-family: var(--font);
+    color: var(--greyText);
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    position: center;
+}
+
+body {
+    margin: auto;
+    padding: 0;
+    height: fit-content;
+    min-height: 100%;
+    width: 100%;
+    display: block;
+    position: center;
+    box-sizing: border-box;
+}
+
+.header {
+    color: var(--headerColor);
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.info {
+    max-width: 675px;
+    width: 100%;
+    display: block;
+    position: center;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: transparent;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.description {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+li ,ul {
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+
+.links {
+    max-width: 675px;
+    width: 100%;
+    display: block;
+    margin: 27px auto;
+    font-weight: 400;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.link {
+    position: relative;
+    background-color: transparent;
+    color: var(--blueText);
+    text-align: left;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.footer {
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: inline-block;
+}
+
+.alisa {
+    color: var(--blueText);
+    background: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+    .alisa:hover {
+    color: var(--blueText);
+    }
+}
+
+.alisa:active {
+    background-color: transparent;
+}
