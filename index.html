@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="bookmark.png" type="image/x-icon"/>
 </head>
-  
+
+<!--********** BODY **********-->  
 <body>
 <div class="main">
   
@@ -15,9 +16,20 @@
   Booksmarks
 </div>
 
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')">Show all</button>
+  <button class="btn" onclick="filterSelection('web')">Web</button>
+  <button class="btn" onclick="filterSelection('html')">HTML</button>
+  <button class="btn" onclick="filterSelection('css')">CSS</button>
+  <button class="btn" onclick="filterSelection('js')">Java Script</button>
+  <button class="btn" onclick="filterSelection('algo')">Algorand</button>
+  <button class="btn" onclick="filterSelection('icp')">Internet Computer</button>
+  <button class="btn" onclick="filterSelection('tools')">Tools</button>
+</div>    
+  
 <div class="info">  
   
-<div class="topic"> <div class="description">Web</div>
+<div class="topic web"> <div class="description">Web</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://app.netlify.com/teams/" target="_blank">Netlify</a></li>
@@ -37,10 +49,10 @@
   <li><a class="link" href="https://developer.mozilla.org/en-US/" target="_blank">MDN Resources for Developers</a></li>
   <li><a class="link" href="https://andreasbm.github.io/web-skills/" target="_blank">List of Useful Skills for Web Developers</a></li>
  </ul> 
-</div>
-</div>
+</div> <!--links-->
+</div> <!--topic-->
 
-<div class="topic"> <div class="description">HTML</div>
+<div class="topic html"> <div class="description">HTML</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://www.w3schools.com/tags/default.asp" target="_blank">W3Schools HTML Reference</a></li>
@@ -50,10 +62,10 @@
   <li><a class="link" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories" target="_blank">MDN HTML Content categories</a></li>
   <li><a class="link" href="https://www.rapidtables.com/web/index.html" target="_blank">RapidTables - Web Design and Development</a></li>
  </ul> 
-</div>
-</div>  
+</div> <!--links-->
+</div> <!--topic--> 
   
-<div class="topic"> <div class="description">CSS</div>
+<div class="topic css"> <div class="description">CSS</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://www.color-hex.com/" target="_blank">Color Hex</a></li>
@@ -61,19 +73,19 @@
   <li><a class="link" href="https://imagecolorpicker.com/" target="_blank">Image Color Picker</a></li>
   <li><a class="link" href="https://css-tricks.com/" target="_blank">CSS Tricks</a></li>
  </ul> 
-</div>
-</div>  
+</div> <!--links-->
+</div> <!--topic--> 
   
-<div class="topic"> <div class="description">Java Script</div>
+<div class="topic js"> <div class="description">Java Script</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://reactjs.org/tutorial/tutorial.html" target="_blank">Intro to React</a></li>
  </ul> 
-</div>
-</div>    
+</div> <!--links-->
+</div> <!--topic-->   
   
   
-<div class="topic"> <div class="description">Algorand</div>
+<div class="topic algo"> <div class="description">Algorand</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://wallet.myalgo.com/dashboard" target="_blank">My Algo Wallet</a></li>
@@ -101,10 +113,10 @@
   <li><a class="link" href="https://algoscan.app/" target="_blank">AlgoScan</a></li>
   <li><a class="link" href="https://flow.algo.surf/" target="_blank">Algo Surf</a></li>
  </ul> 
-</div>
-</div>
+</div> <!--links-->
+</div> <!--topic-->
   
-<div class="topic"> <div class="description">Internet Computer</div>
+<div class="topic icp"> <div class="description">Internet Computer</div>
 <div class="links">  
  <ul>
   <li><a class="link" href="https://identity.ic0.app/" target="_blank">NNS Identity</a></li>
@@ -127,8 +139,8 @@
   <li><a class="link" href="https://internetcomputer.org/how-it-works" target="_blank">How Internet Computer Works</a></li>
   <li><a class="link" href="https://internetcomputer.org/docs/current/home" target="_blank">Internet Computer Developers Docs</a></li>
  </ul> 
-</div>
-</div>
+</div> <!--links-->
+</div> <!--topic-->
 
 <!-- <div class="topic"> <div class="description">Portfolio</div>
 <div class="links">  
@@ -155,7 +167,7 @@
 </div>
 </div>-->
   
-<div class="topic"> <div class="description">Tools</div>
+<div class="topic tools"> <div class="description">Tools</div>
 <div class="links">   
 <ul>
   <li><a class="link" href="https://www.photopea.com/" target="_blank">Photopea</a></li>
@@ -191,11 +203,58 @@
   
   <li><a class="link" href="https://routinehub.co/" target="_blank">Routine Hub - Apple shortcuts</a></li>
 </ul> 
-</div>    
-</div>
+</div> <!--links-->
+</div> <!--topic-->
   
 </div> <!--info-->
-  
+
+<!--********** SCRIPT **********-->
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("topic");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+<!--********** FOOTER **********-->
 <div class="footer">
    Build by <a class="alisa" href="https://linktree.alisa.social/" target="_blank">alisa.algo</a> | 2023 | 
   <a class="alisa" href="https://github.com/alisa-yar/bookmarks" target="_blank">source code</a>
